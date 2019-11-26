@@ -80,7 +80,7 @@
   // When transition ends, remove the .playing class:
   drums.keys.forEach(key => key.addEventListener(`transitionend`, drums.removeTransition));
 
-  window.addEventListener('keydown', playSound);
+  window.addEventListener('keydown', drums.playSound);
 
 </script>
 
