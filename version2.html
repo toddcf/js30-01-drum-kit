@@ -60,8 +60,7 @@
 <script>
 
   const drums = {
-    // playSound - plays appropriate sound when a key is pressed:
-    playSound: (e) => {
+    playSound(e) {
       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
       if (audio) {
@@ -70,24 +69,18 @@
         key.classList.add(`playing`);
       }
     },
-    // removeTransition - removes .playing class:
-    removeTransition: function (e) {
-      console.log(this);
+    removeTransition(e) {
       if (e.propertyName === `transform`) {
         this.classList.remove(`playing`);
       }
     },
-    // keys - selects all elements with the class .key:
-    keys: document.querySelectorAll(`.key`),
-    // init adds event listeners to the keys:
-    init: () => {
-      // When transition ends, remove the .playing class:
-      drums.keys.forEach(key => key.addEventListener(`transitionend`, drums.removeTransition)),
-      window.addEventListener('keydown', drums.playSound)
-    }
+    keys: document.querySelectorAll(`.key`)
   }
-  
-  drums.init();
+
+  // When transition ends, remove the .playing class:
+  drums.keys.forEach(key => key.addEventListener(`transitionend`, drums.removeTransition));
+
+  window.addEventListener('keydown', drums.playSound);
 
 </script>
 
