@@ -71,9 +71,9 @@
       }
     },
     // Removes .playing class:
-    removeTransition: (e) => {
+    removeTransition: function (e) {
       if (e.propertyName === `transform`) {
-        e.target.classList.remove(`playing`);
+        this.classList.remove(`playing`);
       }
     },
     // Selects all elements with the class .key:
@@ -81,8 +81,8 @@
     // Add event listeners to keys:
     init: () => {
       // When transition ends, remove .playing class:
-      drums.keys.forEach(key => key.addEventListener(`transitionend`, drums.removeTransition));
-      window.addEventListener('keydown', drums.playSound);
+      drums.keys.forEach(key => key.addEventListener(`transitionend`, drums.removeTransition)),
+      window.addEventListener('keydown', drums.playSound)
     }
   }
   
