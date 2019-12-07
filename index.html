@@ -73,7 +73,7 @@
     // Removes .playing class:
     removeTransition: (e) => {
       if (e.propertyName === `transform`) {
-        e.target.classList.remove(`playing`);
+        e.currentTarget.classList.remove(`playing`);
       }
     },
     // Selects all elements with the class .key:
